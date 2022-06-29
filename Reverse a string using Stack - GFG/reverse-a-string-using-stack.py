@@ -5,9 +5,11 @@
 def reverse(S):
     arr = []
     for i in S:
-        arr.insert(0,i)
-    S = ''.join(arr)
-    return S
+        arr.append(i)
+    s = '' 
+    for i in S:
+        s = s+arr.pop()
+    return s
     #Add code here
 
 #{ 
