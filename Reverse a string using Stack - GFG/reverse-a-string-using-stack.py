@@ -7,7 +7,7 @@ def reverse(S):
     for i in S:
         arr.append(i)
     s = '' 
-    for i in S:
+    while arr != []:
         s = s+arr.pop()
     return s
     #Add code here
