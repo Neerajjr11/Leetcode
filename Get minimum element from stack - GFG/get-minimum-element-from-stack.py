@@ -7,22 +7,35 @@ class stack:
 
     def push(self,x):
         #CODE HERE
-        self.s.append(x)
-        # if x < self.minEle:
-        #     self.minEle = x
+        if self.s == []:
+            self.s.append(x)
+            self.minEle = x
+        else:
+            if x >= self.minEle:
+                self.s.append(x)
+            else:
+                self.s.append(2*x-self.minEle)
+                self.minEle = x
     def pop(self):
         #CODE HERE
-        if self.s == []:
+        if self.s !=[]:
+            y = self.s[len(self.s)-1] #top element
+            if y >= self.minEle:
+                return self.s.pop()
+            else:
+                ans = self.minEle
+                self.minEle = 2*(self.minEle) - y
+                self.s.pop()
+                return ans
+        else:
             return -1
-        
-        return self.s.pop()
 
     def getMin(self):
         #CODE HERE
-        if self.s == []:
+        if self.s !=[]:
+            return self.minEle
+        else:
             return -1
-        
-        return min(self.s)
 #{ 
 #  Driver Code Starts
 #contributed by RavinderSinghPB
