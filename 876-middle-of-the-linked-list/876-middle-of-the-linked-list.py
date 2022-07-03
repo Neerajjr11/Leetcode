@@ -14,10 +14,11 @@ class Solution:
             counter += 1
         counter = (counter//2) 
         index = 0
-        while head:
+        n = head
+        while n:
             if index < counter:
-                head = head.next
+                n= n.next
                 index +=1
             else:
                 break
-        return head
+        return n
