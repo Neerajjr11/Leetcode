@@ -17,3 +17,9 @@ class Solution:
             prev = curr
             curr = temp
         return prev
+    
+#     1 2 3 
+#   curr = 1 temp = 2 c.n = none p = 1 curr = 2
+#  curr = 2 temp = 3 c.n = 1 prev = 2 curr = 3 
+#  curr = 3 temp = none c.n = 2 prev = 3 curr = none
+
