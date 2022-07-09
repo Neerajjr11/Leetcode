@@ -1,3 +1,3 @@
 # Leetcode
-Collection of LeetCode questions which I have solved
+Collection of LeetCode and GFG questions which I have solved
 
