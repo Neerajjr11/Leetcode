@@ -14,5 +14,4 @@ class Solution:
                 op1 = helper(arr,i+1,s+arr[i])
             op2 = helper(arr,i+1,s)
             return max(op1,op2)
-        v= helper(arr,0,s)
-        return v
+        return helper(arr,0,s)
