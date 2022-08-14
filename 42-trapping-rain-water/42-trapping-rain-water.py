@@ -3,22 +3,22 @@ class Solution:
         n = len(height)
         if n <=2:
             return 0
-        left = [0]*n
-        right = [0]*n
-        left[0] = 0
-        leftMax = height[0]
-        for i in range(n):
-            left[i] = leftMax
-            leftMax = max(leftMax,height[i])
-        right[n-1] = 0
-        rightMax = height[n-1]
-        for i in range(n-2,-1,-1):
-            right[i] = rightMax
-            rightMax = max(rightMax,height[i])
-        
+        maxLeft = height[0]
+        maxRight = height[n-1]
         trappedWater = 0
-        for i in range(n):
-            if height[i] < left[i] and height[i] < right[i]:
-                trappedWater +=min(left[i],right[i]) - height[i]
+        left = 1
+        right = n-2
+        while left <= right:
+            if maxLeft < maxRight:
+                if height[left] >= maxLeft:
+                    maxLeft = height[left]
+                else:
+                    trappedWater +=maxLeft - height[left]
+                left +=1
+            else:
+                if height[right] >=maxRight:
+                    maxRight = height[right]
+                else:
+                    trappedWater += maxRight - height[right]
+                right -= 1
         return trappedWater
-                
