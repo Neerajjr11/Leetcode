@@ -5,7 +5,6 @@ class Solution:
         count1 = 0
         element2 = 0
         count2 = 0
-        lst = []
         for i in range(n):
             if element1 == nums[i]:
                 count1+=1
@@ -26,9 +25,10 @@ class Solution:
                 count1 +=1
             elif nums[i] == element2:
                 count2 +=1
-        if count1 > n//3:
-            lst.append(element1)
+        if count1 > n//3 and count2 > n//3:
+            return [element1,element2]
         if count2 > n//3:
-            lst.append(element2)
-        return lst
+            return [element2]
+        elif count1 > n//3:
+            return [element1]
             
