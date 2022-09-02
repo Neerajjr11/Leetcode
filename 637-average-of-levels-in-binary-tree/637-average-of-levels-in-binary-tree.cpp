@@ -16,20 +16,19 @@ public:
         queue<TreeNode*> q;
         q.push(root);
         while(!q.empty()){
-            long long int sum = 0 , count = 0;
-            queue<TreeNode*> temp;
-            while (!q.empty()){
-                TreeNode* n = q.front();
+            double sum = 0;
+            int n = q.size();
+            for(int i=0;i<n;i++){
+                TreeNode* node = q.front();
                 q.pop();
-                sum += n->val;
-                count++;
-                if(n->left != NULL)
-                    temp.push(n->left);
-                if(n->right != NULL)
-                    temp.push(n->right);
+                sum+=node->val;
+                if(node->left)
+                    q.push(node->left);
+                if(node->right)
+                    q.push(node->right);
+                
             }
-            q = temp;
-            result.push_back(sum*1.0/count);
+            result.push_back(sum/n);
         }
         return result;
     }
