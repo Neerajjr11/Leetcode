@@ -1,10 +1,20 @@
 class Solution {
 public:
     string reverseWords(string s) {
-        for(int end = 0, start = 0; end <= s.size(); end++){
-            if(s[end] == ' ' or s[end] == '\0'){           
-                reverse(s.begin()+start, s.begin()+end);
-                start = end+1;
+        int lastSpaceIndex = -1;
+        int len = (int)s.size();
+        for (int strIndex = 0; strIndex <= len; strIndex++) {
+            if (strIndex == len || s[strIndex] == ' ') {
+                int startIndex = lastSpaceIndex + 1;
+                int endIndex = strIndex - 1;
+                while (startIndex < endIndex) {
+                    char temp = s[startIndex];
+                    s[startIndex] = s[endIndex];
+                    s[endIndex] = temp;
+                    startIndex++;
+                    endIndex--;
+                }
+                lastSpaceIndex = strIndex;
             }
         }
         return s;
