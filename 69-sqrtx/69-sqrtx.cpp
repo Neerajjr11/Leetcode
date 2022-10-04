@@ -1,11 +1,22 @@
 class Solution {
 public:
     int mySqrt(int x) {
-        long long i;
-        if(x==0) return 0;
-        if(x<4) return 1;
-        for(i=1;i<=x/2;i++)
-            if((i*i<=x)&&((i+1)*(i+1)>x)) return i;
-        return 0;
+        long long low = 1 , high = x ,  ans = -1;
+        if (x==0 || x == 1)
+            return x;
+        while (low <= high){
+            long long mid = (low + high)/2;
+            long long sq = mid * mid;
+            if (sq == x)
+                return mid;
+            else if(sq > x)
+                high = mid - 1;
+            else
+            {
+                low = mid + 1;
+                ans = mid;
+            }
+        }
+        return ans;
     }
 };
