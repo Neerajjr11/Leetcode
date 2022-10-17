@@ -5,8 +5,8 @@ public:
         for(int i = 0;i < operations.size(); i++){
             if(operations[i] =="--X" || operations[i] == "X--")
                 X--;
-            if(operations[i] == "++X" || operations[i] == "X++")
-                ++X;
+            else
+                X++;
         }
         return X;
     }
