@@ -1,14 +1,11 @@
 class Solution {
 public:
     int singleNumber(vector<int>& nums) {
-        map <int,int> mp;
-        for(int i = 0;i < nums.size(); i++){
-            mp[nums[i]]++;
+        sort(nums.begin(), nums.end());
+        for(int i = 1; i< nums.size();i+=2){
+            if(nums[i-1] != nums[i])
+                return nums[i-1];
         }
-        for(int i = 0;i < nums.size(); i++){
-            if(mp[nums[i]] == 1)
-                return nums[i];
-        }
-        return nums[0];
+        return nums[nums.size() - 1];
     }
 };
