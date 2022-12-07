@@ -10,21 +10,9 @@
  * };
  */
 class Solution {
-private:
-    int res = 0;
-    int inorder(TreeNode* root, int low, int high){
-        if(root){
-            inorder(root -> left, low, high);
-            if((root -> val) >= low && (root -> val) <= high)
-                res += root -> val;
-            inorder(root -> right, low, high);
-        }
-        return res;
-    }
 public:
-    int rangeSumBST(TreeNode* root, int low, int high) {
-        if(!root)
-            return 0;
-        return(inorder(root, low, high));
+    int rangeSumBST(TreeNode* root, int L, int R) {
+        if(!root) return 0;
+        return ((root->val>=L && root->val<=R)? root->val : 0) + rangeSumBST(root->left,L,R) + rangeSumBST(root->right,L,R);
     }
 };
