@@ -6,15 +6,12 @@ public:
             adj[pair[0]].push_back(pair[1]);
             adj[pair[1]].push_back(pair[0]);
         }
-        
         unordered_map<int,int>color;  // 1=Red , 2=Blue 
         unordered_set<int>visited;
-        
         queue<int>q;
-        for(int i=1 ; i<=n ; i++)
-        {
-            if(visited.find(i)==visited.end()){
-                color[i]=1;
+        for(int i = 1; i <= n; i++){
+            if(visited.find(i) == visited.end()){
+                color[i] = 1;
                 q.push(i);
                 
                 while(!q.empty()){
@@ -24,15 +21,14 @@ public:
                     if(visited.find(u)!=visited.end())
                         continue;
                     
-                    for(int v  : adj[u])
-                    {
-                        if(color[v]==color[u])
+                    for(int v: adj[u]){
+                        if(color[v] == color[u])
                             return false;
                         
-                        if(color[u]==1)
-                            color[v]=2;
+                        if(color[u] == 1)
+                            color[v] = 2;
                         else
-                            color[v]=1;
+                            color[v] = 1;
                     
                         q.push(v);
                         
