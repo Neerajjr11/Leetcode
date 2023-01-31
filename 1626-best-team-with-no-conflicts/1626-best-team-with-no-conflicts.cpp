@@ -18,4 +18,6 @@ public:
         }
         return highest;
     }
+    // TC: O(N*N + NLogN)
+// SC: (N)
 };
