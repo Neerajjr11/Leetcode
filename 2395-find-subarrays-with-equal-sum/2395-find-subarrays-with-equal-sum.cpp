@@ -1,14 +1,16 @@
 class Solution {
 public:
     bool findSubarrays(vector<int>& nums) {
-        vector<int> pre;
-        for(int i = 0; i < nums.size() - 1; i++){
-            pre.push_back(nums[i] + nums[i + 1]);
-        }
-        for(int i = 0; i < pre.size(); i++){
-            if(count(pre.begin(), pre.end(), pre[i]) > 1)
+       
+        map<long long,long long> mp;
+        for(int i = 0; i < nums.size()-1 ; i++){
+            long long sum = nums[i]+nums[i+1];
+            if(mp.find(sum)!=mp.end())
                 return true;
+            else
+                mp[sum] = 1;
         }
+        
         return false;
     }
 };
