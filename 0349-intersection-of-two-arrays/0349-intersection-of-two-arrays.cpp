@@ -1,10 +1,8 @@
 class Solution {
 public:
     vector<int> intersection(vector<int>& nums1, vector<int>& nums2) {
-        unordered_set<int> s1;
+        unordered_set<int> s1(nums1.begin(), nums1.end());
         vector<int> res;
-        for(auto i : nums1)
-            s1.insert(i);
         for(auto i : nums2){
             if(s1.count(i) != 0){
                 res.push_back(i);
