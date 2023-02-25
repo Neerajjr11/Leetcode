@@ -25,6 +25,7 @@ public:
             res = min(res, top - mini);
             if(top % 2 != 0)
                 break;
+            // since we are dividing the maximum element there might be a chance where it might become the minimum therefore we check for that in the below condition
             mini = min(mini, top / 2);
             pq.push(top / 2);
         }
