@@ -30,8 +30,9 @@ public:
             }
         }
         int res = 0;
+        // to convert binary to decimal
         for(int i = 0; i < m; i++){
-            int base = 1;
+            int base = 1; // starts with 2^0 which is 1
             for(int j = n - 1; j >= 0; j--){
                 if(grid[i][j] == 1)
                     res += base;
