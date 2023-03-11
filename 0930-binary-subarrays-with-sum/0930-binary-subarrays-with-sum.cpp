@@ -5,17 +5,12 @@ public:
         int res = 0, sumi = 0;
         while(j < n){
             sumi += nums[j];
-            if(sumi <= goal){
-                res += (j - i + 1);
-                j++;
-            }else{
-                while(sumi > goal){
-                    sumi -= nums[i];
-                    i++;
-                }
-                res += (j - i + 1);
-                j++;
+            while(sumi > goal){
+                sumi -= nums[i];
+                i++;
             }
+            res += (j - i + 1);
+            j++;
         }
         return res;
     }
