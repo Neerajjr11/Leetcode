@@ -7,7 +7,7 @@ public:
             mp[groupSizes[i]].push_back(i);
         }
         int count = 0;
-        for(auto i : mp){
+        for(auto& i : mp){
             vector<int> pusher;
             int count = 0;
             for(int j = 0; j < i.second.size(); j++){
