@@ -24,7 +24,7 @@ public:
         }
         for(int i = 0; i < rowsize; i++){
             int r = i, c = 0;
-            // we first traverse the matrix through columns diagonally
+            // we  traverse the matrix through rows diagonally
             vector<int> sorter;
             while(r < rowsize and c < colsize){
                 sorter.push_back(mat[r][c]);
