@@ -20,7 +20,7 @@ public:
             }
             // cout<<found<<" ";
             if(found != INT_MAX)
-                res.push_back(n - 1 - high);
+                res.push_back(n - found);
             else
                 res.push_back(0);
             i++;
