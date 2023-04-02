@@ -1,6 +1,7 @@
 class Solution {
 public:
     vector<int> successfulPairs(vector<int>& spells, vector<int>& potions, long long success) {
+        ios_base::sync_with_stdio(false);
         vector<int> res;
         int i = 0;
         int n = potions.size();
