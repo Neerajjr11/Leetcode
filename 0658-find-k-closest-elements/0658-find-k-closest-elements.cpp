@@ -13,7 +13,7 @@ public:
             }
         }
         
-        cout<<idx<<" ";
+        // cout<<idx<<" ";
         vector<int> res;
         res.push_back(arr[idx]);
         k--;
