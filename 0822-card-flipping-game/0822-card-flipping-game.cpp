@@ -6,12 +6,12 @@ public:
         for(int i = 0; i < fronts.size(); i++)
             if(fronts[i] == backs[i])
                 mp[fronts[i]]++;
-        for(int i = 0; i < fronts.size(); i++)
-            if(mp.find(fronts[i]) == mp.end())
-                mini = min(fronts[i], mini);
-        for(int i = 0; i < backs.size(); i++)
-            if(mp.find(backs[i]) == mp.end())
-                mini = min(backs[i], mini);
+        for(auto& x : fronts)
+            if(mp.count(x) == 0)
+                mini = min(mini, x);
+        for(auto& x : backs)
+            if(mp.count(x) == 0)
+                mini = min(mini, x);
         if(mini == INT_MAX)
             return 0;
         return mini;
