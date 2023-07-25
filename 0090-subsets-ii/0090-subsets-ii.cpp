@@ -5,17 +5,22 @@ public:
         vector<vector<int>> res;
         vector<int> helper;
         
-        function<void(int)> solve = [&](int ind){
-            res.push_back(helper);
-            for(int j = ind; j < nums.size(); j++){
-                if(j > ind && nums[j] == nums[j - 1])
-                    continue;
-                helper.push_back(nums[j]);
-                solve(j + 1);
-                helper.pop_back();
+        function<void(int, int)> solve = [&](int ind, int prev){
+            if(ind == nums.size()){
+                res.push_back(helper);
+                return;
             }
+//          Not pick
+            solve(ind + 1, prev);
+            // pick
+            if(ind > 0 and nums[ind] == nums[ind - 1] and prev != ind - 1)
+                return;
+            helper.push_back(nums[ind]);
+            solve(ind + 1, ind);
+            helper.pop_back();
+                
         };
-        solve(0);
+        solve(0, -1);
         return res;
     }
 };
