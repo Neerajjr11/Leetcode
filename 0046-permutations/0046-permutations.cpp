@@ -1,3 +1,5 @@
+// Approach 1 - Using a map or freq counter to keep track of all elements
+/*
 class Solution {
 public:
     vector<vector<int>> permute(vector<int>& nums) {
@@ -22,6 +24,29 @@ public:
             
         };
         solve(helper, mp);
+        return res;
+    }
+};
+*/
+
+// Approach - 2 by swapping indices within the array
+class Solution {
+public:
+    vector<vector<int>> permute(vector<int>& nums) {
+        vector<vector<int>> res;
+        
+        function<void(int ind, vector<int>)> solve = [&](int ind, vector<int> nums){
+            if(ind == nums.size()){
+                res.push_back(nums);
+                return;
+            }
+            for(int j = ind; j < nums.size(); j++){
+                swap(nums[ind], nums[j]);
+                solve(ind + 1, nums);
+            }
+            
+        };
+        solve(0, nums);
         return res;
     }
 };
