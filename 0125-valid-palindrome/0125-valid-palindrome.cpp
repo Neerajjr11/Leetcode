@@ -1,15 +1,13 @@
 class Solution {
 public:
     bool isPalindrome(string s) {
-        string res = "";
-        string res1 = "";
-        for(char c : s){
-            if(isalpha(c) or isdigit(c)){
-                res += tolower(c);
-                res1 += tolower(c);
-            } 
+        string new_s = "";
+        for(auto& x : s){
+            if(isalpha(x) or isdigit(x))
+                new_s += tolower(x);
         }
-        reverse(res.begin(), res.end());
-        return res == res1;
+        string rev_s = new_s;
+        reverse(rev_s.begin(), rev_s.end());
+        return rev_s == new_s;
     }
 };
