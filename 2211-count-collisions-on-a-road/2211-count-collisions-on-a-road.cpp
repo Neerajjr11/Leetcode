@@ -1,8 +1,8 @@
 class Solution {
 public:
     int countCollisions(string directions) {
-        // Take a left pointer, cars starting from left having L won't collide
-        // take a right pointer, cars starting from right having R won't collide
+        // Take a left pointer, cars starting from left which are moving in left direction are never going to collide
+        // take a right pointer, cars starting from right which are moving right side are never going to collide.
         // after this between left and right pointer count all cars except S as they will collide
         
         int n = directions.size();
