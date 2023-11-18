@@ -18,13 +18,13 @@ class Solution
         priority_queue<int> pq;
         for(int i = 0 ; i < n; i++)
             pq.push(arr[i]);
-        int i = k - 1;
+        int i = 0;
         while(k--){
             // cout << pq.top()<<" ";
-            res[i--] = pq.top();
+            res[i++] = pq.top();
             pq.pop();
         }
-        reverse(res.begin(), res.end());
+        // reverse(res.begin(), res.end());
         return res;
     }
 };
