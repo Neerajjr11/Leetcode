@@ -48,6 +48,7 @@ public:
         vector<int>hist(m, 0);
         for(int i = 0; i < n; i++){
             for(int j = 0; j < m; j++){
+                // the reason we initialize the hist to be 0 is because a building cannot have any zeros
                 if(matrix[i][j] == '0')
                     hist[j] = 0;
                 else
