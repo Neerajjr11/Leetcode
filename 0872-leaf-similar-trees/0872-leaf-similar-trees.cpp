@@ -10,22 +10,21 @@
  * };
  */
 class Solution {
-private:
-    void traverse(TreeNode* root, vector<int> &nums){
-        if(root){
-            if(!root -> left && !root -> right)
-                nums.push_back(root -> val);
-            if(root -> left)
-                traverse(root -> left, nums);
-            if(root -> right)
-                traverse(root -> right, nums);
-        }
-    }
 public:
+    void solve(TreeNode* root, vector<int>&vec){
+        if(root == NULL)
+            return;
+        if(root->left == NULL and root->right == NULL)
+            vec.push_back(root->val);
+        solve(root->left, vec);
+        solve(root->right, vec);
+            
+    }
     bool leafSimilar(TreeNode* root1, TreeNode* root2) {
-        vector<int> nums1,nums2;
-        traverse(root1, nums1);
-        traverse(root2, nums2);
-        return(nums1 == nums2);
+        vector<int>v1;
+        vector<int>v2;
+        solve(root1,v1);
+        solve(root2,v2);
+        return v1 == v2;
     }
 };
