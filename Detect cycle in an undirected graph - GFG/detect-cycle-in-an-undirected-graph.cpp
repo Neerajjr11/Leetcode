@@ -6,22 +6,34 @@ using namespace std;
 class Solution {
   public:
     // Function to detect cycle in an undirected graph.
-    bool bfs(int node, vector<int>adj[], vector<int>& vis){
+    // bool bfs(int node, vector<int>adj[], vector<int>& vis){
+    //     vis[node] = 1;
+    //     // curr node and its parent
+    //     queue<pair<int,int>>q;
+    //     q.push({node, - 1});
+    //     while(!q.empty()){
+    //         int currnode = q.front().first;
+    //         int parent = q.front().second;
+    //         q.pop();
+    //         for(auto& neighbours : adj[currnode]){
+    //             if(!vis[neighbours]){
+    //                 vis[neighbours] = 1;
+    //                 q.push({neighbours, currnode});
+    //             }else if(parent != neighbours)
+    //                 return true;
+    //         }
+    //     }
+    //     return false;
+    // }
+    bool dfs(int node, int parent, vector<int>adj[], vector<int>&vis){
         vis[node] = 1;
-        // curr node and its parent
-        queue<pair<int,int>>q;
-        q.push({node, - 1});
-        while(!q.empty()){
-            int currnode = q.front().first;
-            int parent = q.front().second;
-            q.pop();
-            for(auto& neighbours : adj[currnode]){
-                if(!vis[neighbours]){
-                    vis[neighbours] = 1;
-                    q.push({neighbours, currnode});
-                }else if(parent != neighbours)
+        for(auto& it : adj[node]){
+            if(!vis[it]){
+                if(dfs(it,node,adj,vis) == true)
                     return true;
-            }
+                    
+            }else if(it != parent)
+                return true;
         }
         return false;
     }
@@ -31,7 +43,7 @@ class Solution {
         bool res = false;
         for(int i = 0; i < V; i++){
             if(!vis[i]){
-                res = bfs(i, adj, vis);
+                res = dfs(i,-1, adj, vis);
                 if(res == true)
                     return true;
             }
