@@ -9,6 +9,8 @@ class Solution {
     void dfs(int node, vector<int>adj[],vector<int>&vis, vector<int>&res){
         vis[node] = 1;
         res.push_back(node);
+        // traverse all its neighbours
+        
         for(auto& x : adj[node]){
             if(!vis[x])
                 dfs(x,adj,vis,res);
