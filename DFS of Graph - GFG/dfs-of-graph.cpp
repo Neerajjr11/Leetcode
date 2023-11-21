@@ -20,11 +20,7 @@ class Solution {
         vector<int>vis(V, 0);
         int start = 0;
         vector<int> res;
-        for(int i = 0; i < V; i++){
-            if(!vis[i]){
-                dfs(i,adj,vis,res);
-            }
-        }
+        dfs(0,adj,vis,res);
         return res;
     }
 };
