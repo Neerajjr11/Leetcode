@@ -12,7 +12,6 @@ public:
         vector<int>res;
         for(auto& i : mp){
             int n = i.second.size();
-            cout << n<<" ";
             while(n--){
                 res.push_back(i.second[n]);
             }
