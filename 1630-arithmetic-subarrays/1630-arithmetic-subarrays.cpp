@@ -3,18 +3,21 @@ public:
     vector<bool> checkArithmeticSubarrays(vector<int>& nums, vector<int>& l, vector<int>& r) {
         vector<bool> res;
         for(int i = 0; i < l.size(); i++){
-            vector<int> helper = nums;
-            sort(helper.begin() + l[i], helper.begin() + r[i] + 1, greater<int>());
-            int diff = helper[l[i]] - helper[l[i] + 1];
+            vector<int> helper;
+            for(int j = l[i]; j <= r[i]; j++)
+                helper.push_back(nums[j]);
+            sort(helper.begin(), helper.end());
+            int diff = helper[1] - helper[0];
             bool flag = true;
-            for(int j = l[i] + 1; j < r[i]; j++){
-                if(diff != (helper[j] - helper[j + 1]))
+            for(int j = 2; j < helper.size(); j++){
+                if((helper[j] - helper[j - 1]) == diff)
+                    flag = true;
+                else{
                     flag = false;
+                    break;
+                }
             }
-            if(flag == true)
-                res.push_back(true);
-            else
-                res.push_back(false);
+            res.push_back(flag);
         }
         return res;
     }
