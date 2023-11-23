@@ -3,9 +3,7 @@ public:
     vector<bool> checkArithmeticSubarrays(vector<int>& nums, vector<int>& l, vector<int>& r) {
         vector<bool> res;
         for(int i = 0; i < l.size(); i++){
-            vector<int> helper;
-            for(int j = l[i]; j <= r[i]; j++)
-                helper.push_back(nums[j]);
+            vector<int> helper (begin(nums) + l[i], begin(nums) + r[i] + 1);
             sort(helper.begin(), helper.end());
             int diff = helper[1] - helper[0];
             bool flag = true;
