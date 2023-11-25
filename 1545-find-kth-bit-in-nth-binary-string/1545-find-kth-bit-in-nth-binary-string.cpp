@@ -10,7 +10,6 @@ public:
         }
         return s;
     }
-    int ans = 0;
     void solve(string& s, int n){
         if(n == 1){
             s = "0";
