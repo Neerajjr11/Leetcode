@@ -22,7 +22,6 @@ public:
     char findKthBit(int n, int k) {
         string s = "";
         solve(s,n);
-        // cout << s;
         return s[k - 1];
     }
 };
