@@ -59,7 +59,8 @@ public:
            
             vector<int> sorted_pillars = hist;
             sort(sorted_pillars.begin(), sorted_pillars.end());
-             // max_ar = max(max_ar, MAH(sorted_pillars));
+            // for(int j = 0; j < n; j++)
+            //     max_ar = max(max_ar, sorted_pillars[j] * (n - j));
             max_ar = max(max_ar, MAH(sorted_pillars));
         }
         return max_ar;
