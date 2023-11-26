@@ -56,8 +56,10 @@ public:
             }
         
             // similar to maximal rectangle, we sort the pillar and then find the max_ar possible
+           
             vector<int> sorted_pillars = hist;
             sort(sorted_pillars.begin(), sorted_pillars.end());
+             // max_ar = max(max_ar, MAH(sorted_pillars));
             max_ar = max(max_ar, MAH(sorted_pillars));
         }
         return max_ar;
