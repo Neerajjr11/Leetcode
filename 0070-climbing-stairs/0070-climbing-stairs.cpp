@@ -1,15 +1,18 @@
 class Solution {
 public:
     int climbStairs(int n) {
-        if(n <= 2)
-            return n;
-        int prev2 = 1, prev = 2;
-        int res;
-        for(int i = 3; i <= n; i++){
-            res = prev + prev2;
-            prev2 = prev;
-            prev = res;
+        if(n == 0)
+            return 0;
+        if(n == 1)
+            return 1;
+        // this is fibonnacci
+        int first = 0;
+        int second = 1;
+        for(int i = 1; i <= n; i++){
+            int temp = first;
+            first = second;
+            second = second + temp;
         }
-        return res;
+        return second;
     }
 };
