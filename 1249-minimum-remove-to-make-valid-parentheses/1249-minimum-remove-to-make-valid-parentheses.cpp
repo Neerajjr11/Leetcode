@@ -12,14 +12,12 @@ public:
         while (!st.empty()) {
             int idx = st.top().second;
             st.pop();
-            s[idx] = ' '; // Mark characters to be removed
+            s[idx] = ' ';
         }
         for (char c : s) {
             if (c != ' ')
                 res += c;
         }
         return res;
-}
-
-
+    }
 };
