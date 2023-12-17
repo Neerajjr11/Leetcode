@@ -1,8 +1,7 @@
 class FoodRatings {
 public:
     struct comp {
-        bool operator()( pair<int, string> p1,
-                         pair<int, string> p2) const
+        bool operator()( pair<int, string> p1, pair<int, string> p2) const
         {
             // custom comparator to compare based on the conditions specfied in the problem
             // i.e first sort the map in descending order based on the ratings
