@@ -5,6 +5,8 @@ public:
                          pair<int, string> p2) const
         {
             // custom comparator to compare based on the conditions specfied in the problem
+            // i.e first sort the map in descending order based on the ratings
+            // if the ratings are same choose the lexicographically smallest string
             if(p1.first != p2.first)
                 return p1.first > p2.first;
             else
