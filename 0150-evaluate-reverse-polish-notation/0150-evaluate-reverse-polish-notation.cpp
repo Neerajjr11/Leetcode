@@ -1,40 +1,42 @@
 class Solution {
 public:
     int evalRPN(vector<string>& tokens) {
-        // Polish notation is the prefix notation
-        // therefore the reverse polish notation is postfix notation
-        stack<long long > stack;
+        stack<long long>st;
         for(int i = 0; i < tokens.size(); i++){
             if(tokens[i] == "+"){
-                long long num1 = stack.top();
-                stack.pop();
-                long long num2 = stack.top();
-                stack.pop();
-                stack.push(num1 + num2);
+                long long num1 = st.top();
+                st.pop();
+                long long num2 = st.top();
+                st.pop();
+                long long res = (num1 + num2);
+                st.push(res);
             }
             else if(tokens[i] == "-"){
-                long long num1 = stack.top();
-                stack.pop();
-                long long num2 = stack.top();
-                stack.pop();
-                stack.push(num2 - num1);
+                long long num1 = st.top() ;
+                st.pop();
+                long long num2 = st.top();
+                st.pop();
+                long long res = (num2 - num1);
+                st.push(res);
             }
             else if(tokens[i] == "*"){
-                long long num1 = stack.top();
-                stack.pop();
-                long long num2 = stack.top();
-                stack.pop();
-                stack.push(num1 * num2);
+                long long num1 = st.top();
+                st.pop();
+                long long num2 = st.top();
+                st.pop();
+                long long res = (num1 * num2);
+                st.push(res);
             }
             else if(tokens[i] == "/"){
-                long long num1 = stack.top();
-                stack.pop();
-                long long num2 = stack.top();
-                stack.pop();
-                stack.push(num2 / num1);
+                long long num1 = st.top();
+                st.pop();
+                long long num2 = st.top();
+                st.pop();
+                long long res = (num2 / num1);
+                st.push(res);
             }
-            else stack.push(stoll(tokens[i]));
+            else st.push(stoll(tokens[i]));
         }
-        return stack.top();
+        return st.top();
     }
 };
