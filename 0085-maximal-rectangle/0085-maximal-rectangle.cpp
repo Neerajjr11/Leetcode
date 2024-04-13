@@ -1,6 +1,6 @@
 class Solution {
 public:
-        int MAH(vector<int>& heights) {
+    int MAH(vector<int>& heights) {
         // find the nsl - next smallest left of the element
         stack<pair<int,int>>nsl_st;
         // to store the indices of the next smallest left elements
@@ -42,12 +42,12 @@ public:
         return max_ar;
     }
     int maximalRectangle(vector<vector<char>>& matrix) {
-        int n = matrix.size();
-        int m = matrix[0].size();
+        int m = matrix.size();
+        int n = matrix[0].size();
         int max_ar = 0;
-        vector<int>hist(m, 0);
-        for(int i = 0; i < n; i++){
-            for(int j = 0; j < m; j++){
+        vector<int>hist(n, 0);
+        for(int i = 0; i < m; i++){
+            for(int j = 0; j < n; j++){
                 // the reason we initialize the hist to be 0 is because a building cannot have any zeros
                 if(matrix[i][j] == '0')
                     hist[j] = 0;
@@ -55,6 +55,8 @@ public:
                     hist[j] = hist[j] + 1;
             }
             max_ar = max(max_ar, MAH(hist));
+            // instead of doing it using stack based solution we can do it like this as well
+           
         }
         return max_ar;
     }
