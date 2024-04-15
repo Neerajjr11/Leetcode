@@ -11,21 +11,22 @@
  */
 class Solution {
 public:
-    void traverse(TreeNode* root, vector<int> & res){
-        if(root == nullptr)
-            return;
-        traverse(root->left, res);
-        res.push_back(root->val);
-        traverse(root->right, res);
-    }
     bool isValidBST(TreeNode* root) {
-        vector<int> res;
-        traverse(root, res);
-        for(int i = 1; i < res.size(); i++){
-            if(res[i] > res[i - 1])
-                continue;
-            else
-                return false;
+        TreeNode* prev = nullptr;
+        TreeNode* curr = root;
+        stack<TreeNode*> st;
+        while(curr!= nullptr or !st.empty()){
+            if(curr != nullptr){
+                st.push(curr);
+                curr = curr->left;
+            }else{
+                curr = st.top();
+                st.pop();
+                if(prev != nullptr and prev->val >= curr->val)
+                    return false;
+                prev = curr;
+                curr = curr->right;
+            }
         }
         return true;
     }
