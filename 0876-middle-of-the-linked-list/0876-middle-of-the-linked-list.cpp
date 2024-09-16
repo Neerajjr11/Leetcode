@@ -1,4 +1,4 @@
-/**
+/**Li
  * Definition for singly-linked list.
  * struct ListNode {
  *     int val;
@@ -11,11 +11,10 @@
 class Solution {
 public:
     ListNode* middleNode(ListNode* head) {
-        ListNode* slow = head;
-        ListNode* fast = head;
-        while(fast && fast->next){
-            slow = slow -> next;
-            fast = fast -> next -> next;
+        ListNode* fast = head, *slow = head;
+        while(fast != nullptr and fast->next != nullptr){
+            fast = fast->next->next;
+            slow = slow->next;
         }
         return slow;
     }
